@@ -18,6 +18,9 @@ R = [255, 0, 0]  # red
 Y = [255, 255, 0] # yellow
 G = [0, 255, 0] # green
 W = [255, 255, 255] # white
+O = [0,0,0] #nothing
+R = [255,40,0] #orange
+
 
 score = 0
 
@@ -42,8 +45,31 @@ for turns in range(5):
       if (x == coinx and y == coiny):
         sense.set_pixel(x,y,G)
         score += 1
+
+        def coin():
+          logo = [
+          O, O, O, O, O, O, O, O,
+          O, O, Y, Y, Y, Y, O, O,
+          O, Y, Y, R, R, Y, Y, O,
+          O, Y, R, Y, Y, Y, Y, O,
+          O, Y, R, Y, Y, Y, Y, O,
+          O, Y, Y, R, R, Y, Y, O,
+          O, O, Y, Y, Y, Y, O, O,
+          O, O, O, O, O, O, O, O,
+          ]
+          return logo
+        
+        images = [coin]
+        count = 0
+
+        sense.set_pixels(images[count % len(images)]())
+        sleep(1)
+        count += 1
+        sense.clear()
+
       else:
-        sense.set_pixel(x,y,R)
+        #sense.set_pixel(x,y,R)
+        sense.clear(R)
       
       sleep(1)
       sense.clear()
