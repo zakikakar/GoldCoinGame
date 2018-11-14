@@ -28,7 +28,7 @@ for turns in range(5):
   print (coinx, coiny)
   
   sense.set_pixel(coinx, coiny, Y)
-  sleep(2)
+  sleep(1)
   sense.clear()
   
   x = randint(0,7)
@@ -63,5 +63,5 @@ for turns in range(5):
       
     sense.set_pixel(x,y,W)
     
-sense.show_message("Score " + str(score) + "/5")
+sense.show_message("Score " + str(score) + "/5", scroll_speed = 0.05)
     
